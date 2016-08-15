@@ -1,6 +1,5 @@
 from ..utils import now
 from .forms import ClientAuthForm, PublicPasswordGrantForm
-from .models import AccessToken
 
 
 class BaseBackend(object):
@@ -89,6 +88,7 @@ class AccessTokenBackend(object):
 
     def authenticate(self, access_token=None, client=None):
         try:
+            from .models import AccessToken
             return AccessToken.objects.get(token=access_token,
                 expires__gt=now(), client=client)
         except AccessToken.DoesNotExist:
