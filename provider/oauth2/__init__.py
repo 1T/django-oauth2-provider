@@ -1,1 +1,1 @@
-default_app_config = 'provider.oauth2.OAuth2Config'
+default_app_config = 'provider.oauth2.apps.OAuth2Config'
